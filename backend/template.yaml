@@ -1,0 +1,109 @@
+
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Description: CloudPrep Phase 1 Serverless Backend
+
+Globals:
+  Function:
+    Runtime: python3.12
+    Timeout: 15
+    MemorySize: 256
+
+Resources:
+
+  # Private question bank
+  QuestionBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+
+  # Exam results storage
+  ResultsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: CloudPrepResults
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: attemptId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: attemptId
+          KeyType: HASH
+
+  # HTTP API
+  CloudPrepApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      CorsConfiguration:
+        AllowMethods:
+          - GET
+          - POST
+          - OPTIONS
+        AllowHeaders:
+          - content-type
+        AllowOrigins:
+          - http://localhost:5173
+          - http://localhost:5174
+
+  # Retrieve exam questions
+  GetQuestionsFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: get_questions/
+      Handler: app.lambda_handler
+      Environment:
+        Variables:
+          QUESTION_BUCKET: !Ref QuestionBucket
+      Policies:
+        - S3ReadPolicy:
+            BucketName: !Ref QuestionBucket
+      Events:
+        GetQuestions:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref CloudPrepApi
+            Path: /questions
+            Method: GET
+
+  # Submit and evaluate exam
+  SubmitExamFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: submit_exam/
+      Handler: app.lambda_handler
+      Environment:
+        Variables:
+          QUESTION_BUCKET: !Ref QuestionBucket
+          RESULTS_TABLE: !Ref ResultsTable
+      Policies:
+        - S3ReadPolicy:
+            BucketName: !Ref QuestionBucket
+        - DynamoDBWritePolicy:
+            TableName: !Ref ResultsTable
+      Events:
+        SubmitExam:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref CloudPrepApi
+            Path: /submit
+            Method: POST
+
+Outputs:
+  ApiUrl:
+    Description: CloudPrep API Gateway URL
+    Value: !Sub "https://${CloudPrepApi}.execute-api.${AWS::Region}.${AWS::URLSuffix}"
+  
+  QuestionBucketName:
+    Value: !Ref QuestionBucket
+
+  ResultsTableName:
+    Value: !Ref ResultsTable

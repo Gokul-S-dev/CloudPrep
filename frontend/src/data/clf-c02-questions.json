@@ -1,0 +1,174 @@
+[
+  {
+    "id": 1,
+    "domain": "Cloud Concepts",
+    "type": "single",
+    "question": "Which AWS service provides scalable object storage accessible via HTTP/HTTPS?",
+    "options": [
+      { "id": "A", "text": "Amazon Elastic Block Store (Amazon EBS)" },
+      { "id": "B", "text": "Amazon Simple Storage Service (Amazon S3)" },
+      { "id": "C", "text": "Amazon Relational Database Service (Amazon RDS)" },
+      { "id": "D", "text": "Amazon Virtual Private Cloud (Amazon VPC)" }
+    ],
+    "correctAnswers": ["B"],
+    "explanation": "Amazon Simple Storage Service (Amazon S3) is an industry-leading object storage service offering high scalability, data availability, security, and performance. Amazon EBS provides block storage, RDS is a relational database service, and VPC is networking."
+  },
+  {
+    "id": 2,
+    "domain": "Cloud Concepts",
+    "type": "single",
+    "question": "Which cloud computing benefit refers to the ability to automatically grow or shrink computing capacity in response to changing demand?",
+    "options": [
+      { "id": "A", "text": "High Availability" },
+      { "id": "B", "text": "Fault Tolerance" },
+      { "id": "C", "text": "Elasticity" },
+      { "id": "D", "text": "Durability" }
+    ],
+    "correctAnswers": ["C"],
+    "explanation": "Elasticity is the ability to dynamically acquire computing resources as needed and release them when they are no longer required, matching demand spikes and minimizing idle capacity costs."
+  },
+  {
+    "id": 3,
+    "domain": "Security and Compliance",
+    "type": "single",
+    "question": "According to the AWS Shared Responsibility Model, which security task is the customer's responsibility when running an Amazon EC2 instance?",
+    "options": [
+      { "id": "A", "text": "Patching the guest operating system and applications" },
+      { "id": "B", "text": "Maintaining the hypervisor firmware" },
+      { "id": "C", "text": "Disposing of decommissioned physical storage drives" },
+      { "id": "D", "text": "Securing the physical data center perimeter" }
+    ],
+    "correctAnswers": ["A"],
+    "explanation": "AWS manages 'security OF the cloud' (hardware, facilities, hypervisor, physical storage). For infrastructure services like EC2, the customer is responsible for 'security IN the cloud', which includes guest OS patching, firewall settings, and application software."
+  },
+  {
+    "id": 4,
+    "domain": "Security and Compliance",
+    "type": "multiple",
+    "question": "Which of the following are recommended best practices for securing the AWS root user account? (Select TWO.)",
+    "options": [
+      { "id": "A", "text": "Enable Multi-Factor Authentication (MFA) on the root user" },
+      { "id": "B", "text": "Generate and use root access keys for routine administrative tasks" },
+      { "id": "C", "text": "Create individual IAM users with least-privilege permissions for daily work" },
+      { "id": "D", "text": "Share root credentials with all team members who need administrative access" },
+      { "id": "E", "text": "Disable CloudTrail logging to prevent tracking root activity" }
+    ],
+    "correctAnswers": ["A", "C"],
+    "explanation": "Best practices for AWS root user security include enabling Multi-Factor Authentication (MFA) and locking away root credentials, while creating IAM users with least privilege for day-to-day administrative tasks. Root access keys should never be created or used for routine tasks."
+  },
+  {
+    "id": 5,
+    "domain": "Cloud Technology and Services",
+    "type": "single",
+    "question": "Which AWS compute service enables you to run code without provisioning or managing servers?",
+    "options": [
+      { "id": "A", "text": "Amazon Elastic Container Service (Amazon ECS)" },
+      { "id": "B", "text": "Amazon Elastic Compute Cloud (Amazon EC2)" },
+      { "id": "C", "text": "AWS Lambda" },
+      { "id": "D", "text": "Amazon Lightsail" }
+    ],
+    "correctAnswers": ["C"],
+    "explanation": "AWS Lambda is a serverless compute service that lets you run code in response to events and triggers without provisioning or managing servers. You pay only for the compute time consumed."
+  },
+  {
+    "id": 6,
+    "domain": "Cloud Technology and Services",
+    "type": "single",
+    "question": "A global company needs to deliver dynamic web content and static assets to worldwide end users with the lowest possible latency. Which AWS service should they use?",
+    "options": [
+      { "id": "A", "text": "Amazon CloudFront" },
+      { "id": "B", "text": "AWS Direct Connect" },
+      { "id": "C", "text": "Amazon Route 53" },
+      { "id": "D", "text": "AWS Transit Gateway" }
+    ],
+    "correctAnswers": ["A"],
+    "explanation": "Amazon CloudFront is a fast content delivery network (CDN) service that securely delivers data, videos, applications, and APIs to customers globally with low latency and high transfer speeds via AWS Edge Locations."
+  },
+  {
+    "id": 7,
+    "domain": "Cloud Technology and Services",
+    "type": "multiple",
+    "question": "Which AWS database services are fully managed relational databases? (Select TWO.)",
+    "options": [
+      { "id": "A", "text": "Amazon DynamoDB" },
+      { "id": "B", "text": "Amazon Relational Database Service (Amazon RDS)" },
+      { "id": "C", "text": "Amazon Aurora" },
+      { "id": "D", "text": "Amazon DocumentDB" },
+      { "id": "E", "text": "Amazon ElastiCache" }
+    ],
+    "correctAnswers": ["B", "C"],
+    "explanation": "Amazon RDS and Amazon Aurora are fully managed relational database services supporting relational SQL engines (MySQL, PostgreSQL, etc.). DynamoDB is a key-value NoSQL database, DocumentDB is a document database, and ElastiCache is an in-memory caching engine."
+  },
+  {
+    "id": 8,
+    "domain": "Billing, Pricing, and Support",
+    "type": "single",
+    "question": "Which AWS tool enables users to forecast future costs and visualize historical AWS spending patterns over time?",
+    "options": [
+      { "id": "A", "text": "AWS Pricing Calculator" },
+      { "id": "B", "text": "AWS Cost Explorer" },
+      { "id": "C", "text": "AWS Budgets" },
+      { "id": "D", "text": "AWS Trusted Advisor" }
+    ],
+    "correctAnswers": ["B"],
+    "explanation": "AWS Cost Explorer has an easy-to-use interface that lets you visualize, understand, and manage your AWS costs and usage over time, including forecasting future costs. AWS Budgets sets custom cost/usage alerts, and AWS Pricing Calculator estimates costs before provisioning."
+  },
+  {
+    "id": 9,
+    "domain": "Billing, Pricing, and Support",
+    "type": "single",
+    "question": "Which AWS Support Plan provides 24/7 access to Cloud Support Engineers via phone, chat, and email, along with an assigned Technical Account Manager (TAM)?",
+    "options": [
+      { "id": "A", "text": "AWS Basic Support" },
+      { "id": "B", "text": "AWS Developer Support" },
+      { "id": "C", "text": "AWS Business Support" },
+      { "id": "D", "text": "AWS Enterprise Support" }
+    ],
+    "correctAnswers": ["D"],
+    "explanation": "AWS Enterprise Support includes a designated Technical Account Manager (TAM) to provide proactive guidance and architectural reviews, in addition to 24/7 phone/chat/email support and rapid response times (15 minutes for critical issues)."
+  },
+  {
+    "id": 10,
+    "domain": "Security and Compliance",
+    "type": "single",
+    "question": "Which AWS service provides on-demand access to AWS security and compliance reports, such as SOC 1/2/3 and PCI DSS documentation?",
+    "options": [
+      { "id": "A", "text": "AWS Artifact" },
+      { "id": "B", "text": "AWS Secrets Manager" },
+      { "id": "C", "text": "Amazon GuardDuty" },
+      { "id": "D", "text": "AWS Shield" }
+    ],
+    "correctAnswers": ["A"],
+    "explanation": "AWS Artifact is your go-to, central resource for compliance-related information that matters to you. It provides on-demand access to AWS' security and compliance reports and select online agreements."
+  },
+  {
+    "id": 11,
+    "domain": "Cloud Technology and Services",
+    "type": "single",
+    "question": "What is the primary function of an AWS Availability Zone (AZ)?",
+    "options": [
+      { "id": "A", "text": "A geographical point of presence used exclusively for caching CloudFront content" },
+      { "id": "B", "text": "One or more discrete data centers with redundant power, networking, and connectivity in an AWS Region" },
+      { "id": "C", "text": "A worldwide private network connecting AWS data centers to customer premises" },
+      { "id": "D", "text": "A physical server rack dedicated to a single enterprise customer account" }
+    ],
+    "correctAnswers": ["B"],
+    "explanation": "An Availability Zone (AZ) consists of one or more discrete data centers with redundant power, networking, and connectivity in an AWS Region, isolated from faults in other AZs."
+  },
+  {
+    "id": 12,
+    "domain": "Billing, Pricing, and Support",
+    "type": "multiple",
+    "question": "Which Amazon EC2 pricing models provide significant discounts compared to On-Demand pricing in exchange for a committed term of 1 or 3 years? (Select TWO.)",
+    "options": [
+      { "id": "A", "text": "Spot Instances" },
+      { "id": "B", "text": "Reserved Instances (RIs)" },
+      { "id": "C", "text": "Savings Plans" },
+      { "id": "D", "text": "Dedicated Hosts" },
+      { "id": "E", "text": "On-Demand Instances" }
+    ],
+    "correctAnswers": ["B", "C"],
+    "explanation": "Reserved Instances (RIs) and Savings Plans both offer steep discounts (up to 72%) relative to On-Demand pricing in exchange for committing to a consistent amount of usage for a 1-year or 3-year term. Spot Instances offer discounts but without term commitment and are interruptible."
+  }
+]
+
