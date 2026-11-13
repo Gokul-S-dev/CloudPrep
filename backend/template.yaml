@@ -51,8 +51,7 @@ Resources:
         AllowHeaders:
           - content-type
         AllowOrigins:
-          - http://localhost:5173
-          - http://localhost:5174
+          - "*"
 
   # Retrieve exam questions
   GetQuestionsFunction:
